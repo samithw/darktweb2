@@ -91,9 +91,10 @@ export const mentorships = [
     title: 'Individual Orderflow Mentorship',
     description:
       'One-on-one program for traders who want straight focus and faster results.',
-    price: '40,000 LKR',
+    price: '45,000 LKR',
     priceDescription: 'For dedicated individuals',
     features: [
+      'Same Syllabus as Live Mentorship Program',
       '100% personal attention',
       'Customized learning pace',
       'Learn only what matters — no wasted time',
@@ -111,6 +112,7 @@ export const mentorships = [
     price: '20,000 LKR',
     priceDescription: 'Flexible and self-paced',
     features: [
+      'Same Syllabus as Live Mentorship Program',
       'Full access to private Google Drive content',
       'Over 100 short, structured video lessons',
       'Step-by-step explanations',
@@ -381,5 +383,6 @@ export const commonBenefits = [
 
 
     
+
 
 
