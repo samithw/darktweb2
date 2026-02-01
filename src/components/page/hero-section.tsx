@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { Radio } from 'lucide-react';
+import { Radio, Send } from 'lucide-react';
 
 export default function HeroSection() {
     const heroImage = PlaceHolderImages.find((img) => img.id === 'home-hero');
@@ -43,13 +43,19 @@ export default function HeroSection() {
                     </div>
                 </div>
 
-                <div className="mt-10 flex flex-wrap justify-center gap-4">
-                    <Button asChild size="lg">
-                        <Link href="#mentorships">View Mentorships</Link>
-                    </Button>
-                    <Button asChild variant="secondary" size="lg">
-                        <Link href="#about">Learn More</Link>
-                    </Button>
+                <div className="mt-10 flex flex-col items-center justify-center gap-6">
+                    <Link href="https://t.me/+8NoyH_QcHtE4OGVl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full bg-primary/20 px-6 py-3 text-base font-semibold text-white backdrop-blur-sm ring-1 ring-primary/50 transition-transform hover:scale-105 hover:bg-primary/30">
+                        <Send className="h-5 w-5 text-primary" />
+                        <span>Join Batch 5 Pre-Launch</span>
+                    </Link>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Button asChild size="lg">
+                            <Link href="#mentorships">View Mentorships</Link>
+                        </Button>
+                        <Button asChild variant="secondary" size="lg">
+                            <Link href="#about">Learn More</Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </section>
