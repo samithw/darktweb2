@@ -13,6 +13,7 @@ type TemplateCardProps = {
   imageWidth: number;
   imageHeight: number;
   downloadUrl?: string;
+  className?: string;
 };
 
 const WhatsAppIcon = () => (
@@ -62,14 +63,15 @@ export default function TemplateCard({
   imageHint,
   imageWidth,
   imageHeight,
-  downloadUrl
+  downloadUrl,
+  className,
 }: TemplateCardProps) {
   const whatsappNumber = "94760311037";
   const message = `Hello, I’m interested in purchasing: **${name}**. Please let me know how to proceed.`;
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <Card className="overflow-hidden flex flex-col">
+    <Card className={cn("overflow-hidden flex flex-col", className)}>
       <CardContent className="p-0 flex flex-col flex-grow">
         <div className="aspect-w-16 aspect-h-9">
           <Image

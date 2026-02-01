@@ -25,6 +25,7 @@ export default function Mt5Section() {
                             imageWidth={800}
                             imageHeight={406}
                             downloadUrl={template.downloadUrl}
+                            className="bg-background"
                         />
                     ))}
                 </div>
