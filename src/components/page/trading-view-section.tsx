@@ -126,7 +126,7 @@ export default function TradingViewSection() {
 
 
   return (
-    <section id="trading-view" className="container mx-auto px-4 py-16 sm:py-24">
+    <section id="trading-view" className="container mx-auto px-4 py-16 sm:py-24 bg-card text-card-foreground">
       <div className="text-center">
         <h1 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
         TradingView Indicators & Packages
