@@ -1,8 +1,9 @@
-import Image from 'next/image';
+'use client';
+
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Check, KeyRound } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const fusionBenefits = [
     {
@@ -35,8 +36,64 @@ const fusionBenefits = [
     }
 ];
 
+const YOUTUBE_VIDEO_ID = 'fusion-markets-video-player';
+
 export default function FusionMarketsSection() {
-    const sectionImage = PlaceHolderImages.find((img) => img.id === 'fusion-markets-promo');
+    const sectionRef = React.useRef<HTMLDivElement>(null);
+    const playerRef = React.useRef<any>(null);
+
+    const pauseVideo = React.useCallback(() => {
+        if (playerRef.current && playerRef.current.pauseVideo && typeof playerRef.current.getPlayerState === 'function') {
+            // 1 is YT.PlayerState.PLAYING
+            if (playerRef.current.getPlayerState() === 1) {
+                playerRef.current.pauseVideo();
+            }
+        }
+    }, []);
+
+    React.useEffect(() => {
+        const onYouTubeIframeAPIReady = () => {
+            if (document.getElementById(YOUTUBE_VIDEO_ID)) {
+                playerRef.current = new (window as any).YT.Player(YOUTUBE_VIDEO_ID, {});
+            }
+        };
+
+        if (!(window as any).YT) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            (window as any).onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            if (firstScriptTag && firstScriptTag.parentNode) {
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
+        } else {
+            onYouTubeIframeAPIReady();
+        }
+    }, []);
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) {
+                    pauseVideo();
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        const currentRef = sectionRef.current;
+        const videoIframe = currentRef?.querySelector(`#${YOUTUBE_VIDEO_ID}`);
+        if (videoIframe) {
+            observer.observe(videoIframe);
+        }
+
+        return () => {
+            if (videoIframe) {
+                observer.unobserve(videoIframe);
+            }
+        };
+    }, [pauseVideo]);
+
 
     return (
         <section id="fusion-markets" className="bg-card text-card-foreground">
@@ -51,7 +108,7 @@ export default function FusionMarketsSection() {
                 </div>
 
                 <div className="mt-16 bg-secondary p-8 rounded-xl shadow-2xl border border-primary/20">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <h2 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-3">
                                 <KeyRound className="h-8 w-8 text-primary" />
@@ -70,23 +127,23 @@ export default function FusionMarketsSection() {
                             </ul>
                         </div>
                         <div className="space-y-6 text-center lg:text-left">
-                             {sectionImage && (
-                                <div className="overflow-hidden rounded-lg shadow-lg">
-                                    <Image
-                                        src={sectionImage.imageUrl}
-                                        alt={sectionImage.description}
-                                        width={600}
-                                        height={400}
-                                        className="w-full object-cover"
-                                        data-ai-hint={sectionImage.imageHint}
-                                    />
+                            <div className="overflow-hidden rounded-lg shadow-lg">
+                                <div className="aspect-video bg-black">
+                                    <iframe
+                                        id={YOUTUBE_VIDEO_ID}
+                                        className="w-full h-full"
+                                        src="https://www.youtube.com/embed/fGZ8wp_RlhY?enablejsapi=1"
+                                        title="Fusion Markets Review"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
                                 </div>
-                            )}
+                            </div>
                             <div className="p-6 bg-card rounded-lg border border-border/40">
                                 <h3 className="text-xl font-bold text-foreground">Open a Fusion Markets Account via Dark Trader</h3>
                                 <div className="mt-4">
                                     <Button asChild size="lg">
-                                        <Link href="https://fusionmarkets.com/en?cxd=33800_463138" target="_blank" rel="noopener noreferrer">
+                                        <Link href="https://fusionmarkets.com/?refcode=108030" target="_blank" rel="noopener noreferrer">
                                             Open Referral Link
                                         </Link>
                                     </Button>
