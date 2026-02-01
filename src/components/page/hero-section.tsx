@@ -31,9 +31,9 @@ export default function HeroSection() {
                     Welcome to Real Orderflow Mastery
                 </p>
 
-                <div className="mt-8 rounded-full border border-primary/30 bg-gradient-to-r from-primary/20 via-black/10 to-transparent p-1 shadow-lg backdrop-blur-sm">
-                    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full bg-black/20 px-6 py-3">
-                        <div className="flex items-center gap-2">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+                    <div className="rounded-full border border-primary/30 bg-gradient-to-r from-primary/20 via-black/10 to-transparent p-1 shadow-lg backdrop-blur-sm">
+                        <div className="flex items-center gap-2 rounded-full bg-black/20 px-6 py-3">
                             <div className="relative flex h-5 w-5 items-center justify-center">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                 <Radio className="relative inline-flex h-3 w-3 text-primary-foreground" />
@@ -42,11 +42,11 @@ export default function HeroSection() {
                                 New Live Mentorship Batch Starting May 9th 2026!
                             </p>
                         </div>
-                        <Link href="https://t.me/+8NoyH_QcHtE4OGVl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-transform hover:scale-105">
-                            <Send className="h-5 w-5" />
-                            <span>Join Batch 5 Pre-Launch</span>
-                        </Link>
                     </div>
+                    <Link href="https://t.me/+8NoyH_QcHtE4OGVl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-transform hover:scale-105">
+                        <Send className="h-5 w-5" />
+                        <span>Join Batch 5 Pre-Launch</span>
+                    </Link>
                 </div>
 
                 <div className="mt-10 flex flex-col items-center justify-center gap-6">
