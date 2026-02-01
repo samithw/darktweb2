@@ -36,7 +36,7 @@ export default function Header() {
         href={href}
         onClick={() => setIsOpen(false)}
         className={cn(
-          "transition-colors hover:text-primary",
+          "transition-colors hover:text-primary whitespace-nowrap",
           isActive ? "text-primary font-semibold" : "text-muted-foreground",
           className
         )}
@@ -51,14 +51,14 @@ export default function Header() {
       <div className="container flex h-20 items-center justify-between">
         <Link href="/#home" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
           <Image src="./images/dt-logo.jpg" alt="Dark Trader Logo" width={100} height={100} />
-          <span className="text-xl font-bold text-white">Dark Trader</span>
+          <span className="text-xl font-bold text-white whitespace-nowrap">Dark Trader</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        <nav className="hidden lg:flex items-center gap-6 text-sm">
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
         </nav>
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -77,7 +77,7 @@ export default function Header() {
                 <div className="flex items-center justify-between mb-8">
                     <Link href="/#home" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                         <Image src="/images/dt-logo.jpg" alt="Dark Trader Logo" width={100} height={100} />
-                        <span className="text-xl font-bold text-white">Dark Trader</span>
+                        <span className="text-xl font-bold text-white whitespace-nowrap">Dark Trader</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-6">
