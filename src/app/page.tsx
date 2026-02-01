@@ -3,6 +3,7 @@
 
 import HeroSection from '@/components/page/hero-section';
 import MentorshipsSection from '@/components/page/mentorships-section';
+import FusionMarketsSection from '@/components/page/fusion-markets-section';
 import SierraChartSection from '@/components/page/sierra-chart-section';
 import AtasSection from '@/components/page/atas-section';
 import Mt5Section from '@/components/page/mt5-section';
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <HeroSection />
       <MentorshipsSection />
+      <FusionMarketsSection />
       <SierraChartSection />
       <AtasSection />
       <Mt5Section />

@@ -4,6 +4,7 @@ import Image from 'next/image';
 const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#mentorships', label: 'Mentorships' },
+  { href: '#fusion-markets', label: 'Fusion Markets' },
   { href: '#sierra-chart-templates', label: 'Sierra Chart' },
   { href: '#atas-templates', label: 'ATAS' },
   { href: '#mt5-templates', label: 'MT5' },
