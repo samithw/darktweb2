@@ -7,7 +7,7 @@ export default function AboutSection() {
     const aboutImage = PlaceHolderImages.find((img) => img.id === 'about-us');
 
     return (
-        <section id="about" className="bg-card text-card-foreground">
+        <section id="about" className="">
             <div className="container mx-auto px-4 py-16 sm:py-24">
                 <div className="text-center">
                     <h1 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">

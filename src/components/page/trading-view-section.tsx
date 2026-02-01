@@ -126,7 +126,7 @@ export default function TradingViewSection() {
 
 
   return (
-    <section id="trading-view" className="">
+    <section id="trading-view" className="bg-background">
       <div className="container mx-auto px-4 py-16 sm:py-24">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
@@ -137,7 +137,7 @@ export default function TradingViewSection() {
           </p>
         </div>
 
-        <div className="mt-16 bg-secondary p-8 rounded-xl shadow-2xl border border-primary/20">
+        <div className="mt-16 bg-card p-8 rounded-xl shadow-2xl border border-primary/20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">
@@ -241,7 +241,7 @@ export default function TradingViewSection() {
           </div>
         </div>
         
-        <div className="mt-24 bg-secondary p-8 rounded-xl shadow-2xl border border-primary/20">
+        <div className="mt-24 bg-card p-8 rounded-xl shadow-2xl border border-primary/20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-6 md:order-last lg:order-first">
                 <h2 className="text-3xl font-bold tracking-tight text-foreground">
