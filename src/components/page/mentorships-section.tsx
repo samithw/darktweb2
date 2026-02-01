@@ -18,58 +18,60 @@ export default function MentorshipsSection() {
                     Join our program and unlock your trading potential for success.
                 </p>
             </div>
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
-                {mentorships.map((mentorship) => (
-                    <Card
-                        key={mentorship.title}
-                        className={`flex flex-col transition-colors w-full max-w-sm mx-auto ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
-                            }`}
-                    >
-                        <CardHeader className="flex-grow">
-                            <div className="flex items-start gap-4">
-                                <mentorship.icon className="h-10 w-10 text-primary flex-shrink-0" />
-                                <div>
-                                    <CardTitle className="text-2xl">{mentorship.title}</CardTitle>
-                                    <CardDescription className="mt-1">{mentorship.description}</CardDescription>
-                                    {mentorship.isGoogleDriveCourse && (
-                                        <Badge variant="secondary" className="mt-2">
-                                            <FolderKanban className="h-3 w-3 mr-1.5" />
-                                            Google Drive Content
-                                        </Badge>
-                                    )}
+            <div className="mt-20 flex justify-center">
+                <div className="inline-grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+                    {mentorships.map((mentorship) => (
+                        <Card
+                            key={mentorship.title}
+                            className={`flex flex-col transition-colors w-full max-w-sm mx-auto ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
+                                }`}
+                        >
+                            <CardHeader className="flex-grow">
+                                <div className="flex items-start gap-4">
+                                    <mentorship.icon className="h-10 w-10 text-primary flex-shrink-0" />
+                                    <div>
+                                        <CardTitle className="text-2xl">{mentorship.title}</CardTitle>
+                                        <CardDescription className="mt-1">{mentorship.description}</CardDescription>
+                                        {mentorship.isGoogleDriveCourse && (
+                                            <Badge variant="secondary" className="mt-2">
+                                                <FolderKanban className="h-3 w-3 mr-1.5" />
+                                                Google Drive Content
+                                            </Badge>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col justify-between">
-                            <ul className="space-y-3">
-                                {mentorship.features.map((feature) => (
-                                    <li key={feature} className="flex items-start">
-                                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                                        <span className="text-muted-foreground">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            {mentorship.title === 'Self-Study Orderflow Mentorship' && (
-                                <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg text-center">
-                                    <p className="text-sm font-medium text-foreground">
-                                        You will receive FREE access to the latest live class recordings stored on Google Drive.
+                            </CardHeader>
+                            <CardContent className="flex-grow flex flex-col justify-between">
+                                <ul className="space-y-3">
+                                    {mentorship.features.map((feature) => (
+                                        <li key={feature} className="flex items-start">
+                                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                                            <span className="text-muted-foreground">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                {mentorship.title === 'Self-Study Orderflow Mentorship' && (
+                                    <div className="mt-6 p-4 bg-primary/10 border border-primary/20 rounded-lg text-center">
+                                        <p className="text-sm font-medium text-foreground">
+                                            You will receive FREE access to the latest live class recordings stored on Google Drive.
+                                        </p>
+                                    </div>
+                                )}
+                            </CardContent>
+                            <CardFooter className="flex flex-col items-start gap-4 pt-6">
+                                <div className='w-full'>
+                                    <p className="text-3xl font-bold">{mentorship.price}</p>
+                                    <p className="text-sm text-muted-foreground">
+                                        {mentorship.priceDescription}
                                     </p>
                                 </div>
-                            )}
-                        </CardContent>
-                        <CardFooter className="flex flex-col items-start gap-4 pt-6">
-                            <div className='w-full'>
-                                <p className="text-3xl font-bold">{mentorship.price}</p>
-                                <p className="text-sm text-muted-foreground">
-                                    {mentorship.priceDescription}
-                                </p>
-                            </div>
-                            <Button asChild className={`w-full ${!mentorship.highlight && 'hover:bg-primary hover:text-primary-foreground'}`} size="lg" variant={mentorship.highlight ? 'default' : 'secondary'}>
-                                <Link href="#contact">Enroll Now</Link>
-                            </Button>
-                        </CardFooter>
-                    </Card>
-                ))}
+                                <Button asChild className={`w-full ${!mentorship.highlight && 'hover:bg-primary hover:text-primary-foreground'}`} size="lg" variant={mentorship.highlight ? 'default' : 'secondary'}>
+                                    <Link href="#contact">Enroll Now</Link>
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    ))}
+                </div>
             </div>
             <div className="mt-24 max-w-5xl mx-auto">
                 <h2 className="text-3xl font-bold text-center text-foreground mb-12">What's Included in Every Program</h2>
