@@ -152,11 +152,18 @@ export default function FusionMarketsSection() {
                                                 <ArrowRight className="h-5 w-5" />
                                             </Link>
                                         </Button>
+                                        <p className="mt-4 text-xs text-muted-foreground">
+                                            Or manually enter referral code: <span className="font-semibold text-foreground">108030</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-12 text-center text-xs text-muted-foreground">
+                    <p>Trading involves risk. Ensure you understand the risks before trading live capital.</p>
                 </div>
             </div>
         </section>
