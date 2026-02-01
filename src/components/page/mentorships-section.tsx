@@ -18,7 +18,7 @@ export default function MentorshipsSection() {
                     Join our program and unlock your trading potential for success.
                 </p>
             </div>
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 {mentorships.map((mentorship) => (
                     <Card
                         key={mentorship.title}
