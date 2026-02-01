@@ -257,7 +257,9 @@ export const sierraChartTemplates = [
   { fileName: "hacker-delta-heatmap-1499.jpg", description: "Hacker Delta Heatmap Template, Price LKR 1,499" },
   { fileName: "mpvp-arbitrage-strategy-1999.jpg", description: "MP+VP = Arbitrage Strategy Template, Price LKR 1,999" },
   { fileName: "tpo-frvp-1999.jpg", description: "TPO+FRVP Template, Price LKR 1,999" },
-  { fileName: "zoom-to-footprint-999.jpg", description: "Zoom to Footprint Template, Price LKR 999" }
+  { fileName: "zoom-to-footprint-999.jpg", description: "Zoom to Footprint Template, Price LKR 999" },
+  { fileName: "delta-volume-footprint-1499.jpg", description: "Delta + Volume Footprint, Price LKR 1499" },
+  { fileName: "dual-timeframe-footprint-1499.jpg", description: "Dual Timeframe Footprint, Price LKR 1499" }
 ].map(template => {
   const parts = template.description.split(', Price ');
   const name = parts[0];
@@ -383,6 +385,7 @@ export const commonBenefits = [
 
 
     
+
 
 
 
