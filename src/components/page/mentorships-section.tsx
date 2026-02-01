@@ -22,7 +22,7 @@ export default function MentorshipsSection() {
                 {mentorships.map((mentorship) => (
                     <Card
                         key={mentorship.title}
-                        className={`flex flex-col transition-colors ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
+                        className={`flex flex-col transition-colors w-full max-w-sm mx-auto ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
                             }`}
                     >
                         <CardHeader className="flex-grow">
