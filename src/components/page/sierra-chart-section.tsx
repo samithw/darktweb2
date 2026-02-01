@@ -117,88 +117,93 @@ export default function SierraChartSection() {
 
 
     return (
-        <section id="sierra-chart-templates" className="">
-            <div className="container mx-auto px-4 py-16 sm:py-24">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
-                        Sierra Chart Templates
-                    </h1>
-                    <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
-                        Optimize your trading workflow with our professionally designed Sierra Chart templates.
-                    </p>
+        <>
+            <section id="sierra-chart-templates" className="">
+                <div className="container mx-auto px-4 py-16 sm:py-24">
+                    <div className="text-center">
+                        <h1 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
+                            Sierra Chart Templates
+                        </h1>
+                        <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
+                            Optimize your trading workflow with our professionally designed Sierra Chart templates.
+                        </p>
+                    </div>
+                    <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                        {sierraChartTemplates.map((template) => (
+                            <TemplateCard
+                                key={template.fileName}
+                                imageUrl={template.imageUrl}
+                                name={template.name}
+                                price={template.price}
+                                isFree={template.isFree}
+                                imageHint={template.imageHint}
+                                imageWidth={400}
+                                imageHeight={300}
+                                downloadUrl={template.downloadUrl}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    {sierraChartTemplates.map((template) => (
-                        <TemplateCard
-                            key={template.fileName}
-                            imageUrl={template.imageUrl}
-                            name={template.name}
-                            price={template.price}
-                            isFree={template.isFree}
-                            imageHint={template.imageHint}
-                            imageWidth={400}
-                            imageHeight={300}
-                            downloadUrl={template.downloadUrl}
-                        />
-                    ))}
-                </div>
+            </section>
+            <section className="bg-card text-card-foreground">
+                <div className="container mx-auto px-4 py-16 sm:py-24">
+                    <div className="text-center">
+                        <h2 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
+                            Sierra Chart Will Change How You See the Market
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-xl text-muted-foreground">
+                            Sierra Chart takes you beyond basic indicators and shows the real story behind price, using professional-grade tools like order flow, footprint charts, volume profiles, delta, and market depth.
+                        </p>
+                    </div>
 
-                <div className="mt-24 text-center">
-                    <h2 className="text-4xl font-extrabold tracking-tight font-headline sm:text-5xl">
-                        Sierra Chart Will Change How You See the Market
-                    </h2>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-muted-foreground">
-                        Sierra Chart takes you beyond basic indicators and shows the real story behind price, using professional-grade tools like order flow, footprint charts, volume profiles, delta, and market depth.
-                    </p>
-                </div>
-
-                <div className="mt-16 bg-secondary p-8 rounded-xl shadow-2xl border border-primary/20">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                                Basic Sierra Chart Guide – Step-by-Step for Beginners
-                            </h2>
-                            <div>
-                                <h3 className="text-xl font-semibold text-primary mb-4">🔥 What You Will Learn in This Video</h3>
-                                <ul className="space-y-3">
-                                    {videoPoints.map((point, index) => (
-                                        <li key={index} className="flex items-start">
-                                            <Check className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" />
-                                            <span className="text-muted-foreground">{point}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                    <div className="mt-16 bg-secondary p-8 rounded-xl shadow-2xl border border-primary/20">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div className="space-y-6">
+                                <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                                    Basic Sierra Chart Guide – Step-by-Step for Beginners
+                                </h2>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-primary mb-4">🔥 What You Will Learn in This Video</h3>
+                                    <ul className="space-y-3">
+                                        {videoPoints.map((point, index) => (
+                                            <li key={index} className="flex items-start">
+                                                <Check className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" />
+                                                <span className="text-muted-foreground">{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div ref={carouselRef}>
-                            <Carousel
-                                setApi={setApi}
-                                plugins={[plugin.current]}
-                                className="w-full"
-                                onMouseEnter={plugin.current.stop}
-                                onMouseLeave={plugin.current.reset}
-                            >
-                                <CarouselContent>
-                                    <CarouselItem>
-                                        <div className="overflow-hidden rounded-lg">
-                                            <div className="aspect-video bg-black">
-                                                <iframe
-                                                    id={YOUTUBE_VIDEO_ID}
-                                                    className="w-full h-full"
-                                                    src={videoData.src}
-                                                    title={videoData.alt}
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                    allowFullScreen
-                                                ></iframe>
+                            <div ref={carouselRef}>
+                                <Carousel
+                                    setApi={setApi}
+                                    plugins={[plugin.current]}
+                                    className="w-full"
+                                    onMouseEnter={plugin.current.stop}
+                                    onMouseLeave={plugin.current.reset}
+                                >
+                                    <CarouselContent>
+                                        <CarouselItem>
+                                            <div className="overflow-hidden rounded-lg">
+                                                <div className="aspect-video bg-black">
+                                                    <iframe
+                                                        id={YOUTUBE_VIDEO_ID}
+                                                        className="w-full h-full"
+                                                        src={videoData.src}
+                                                        title={videoData.alt}
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        allowFullScreen
+                                                    ></iframe>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </CarouselItem>
-                                </CarouselContent>
-                            </Carousel>
+                                        </CarouselItem>
+                                    </CarouselContent>
+                                </Carousel>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }
