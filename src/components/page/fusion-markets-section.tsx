@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Check, KeyRound } from 'lucide-react';
+import { Check, KeyRound, ArrowRight } from 'lucide-react';
 
 const fusionBenefits = [
     {
@@ -139,20 +139,20 @@ export default function FusionMarketsSection() {
                                     ></iframe>
                                 </div>
                             </div>
-                            <div className="p-6 bg-card rounded-lg border border-border/40">
-                                <h3 className="text-xl font-bold text-foreground">Open a Fusion Markets Account via Dark Trader</h3>
-                                <div className="mt-4">
-                                    <Button asChild size="lg">
-                                        <Link href="https://fusionmarkets.com/?refcode=108030" target="_blank" rel="noopener noreferrer">
-                                            Open Referral Link
-                                        </Link>
-                                    </Button>
-                                </div>
-                                <div className="mt-6 text-left">
-                                    <h4 className="font-semibold text-primary">Bonus:</h4>
-                                    <p className="text-muted-foreground mt-1">
-                                        Traders who register through Dark Trader may receive exclusive support, guidance, and broker-related assistance.
+                            <div className="p-0.5 rounded-xl bg-gradient-to-r from-purple-500 via-orange-400 to-pink-500 shadow-lg">
+                                <div className="p-8 bg-card rounded-lg text-center h-full">
+                                    <h3 className="text-2xl font-bold text-foreground">Open a Fusion Markets Account</h3>
+                                    <p className="mt-4 text-muted-foreground max-w-md mx-auto">
+                                        Register through Dark Trader to receive exclusive support, guidance, and broker-related assistance.
                                     </p>
+                                    <div className="mt-8">
+                                        <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold transition-transform duration-300 hover:scale-105">
+                                            <Link href="https://fusionmarkets.com/?refcode=108030" target="_blank" rel="noopener noreferrer">
+                                                Use Referral Link
+                                                <ArrowRight className="h-5 w-5" />
+                                            </Link>
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
