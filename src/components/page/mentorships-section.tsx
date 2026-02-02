@@ -19,11 +19,11 @@ export default function MentorshipsSection() {
                 </p>
             </div>
             <div className="mt-20 flex justify-center">
-                <div className="inline-grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12">
+                <div className="inline-grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
                     {mentorships.map((mentorship) => (
                         <Card
                             key={mentorship.title}
-                            className={`flex flex-col transition-colors w-full max-w-sm mx-auto ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
+                            className={`flex flex-col transition-colors w-full max-w-md mx-auto ${mentorship.highlight ? 'border-primary ring-2 ring-primary shadow-lg' : 'hover:border-primary'
                                 }`}
                         >
                             <CardHeader className="flex-grow">
