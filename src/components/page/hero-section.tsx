@@ -39,13 +39,13 @@ export default function HeroSection() {
                                 <Radio className="relative inline-flex h-3 w-3 text-primary-foreground" />
                             </div>
                             <p className="font-semibold tracking-wide text-white">
-                                New Live Mentorship Batch Starting May 9th 2026!
+                                New Live Mentorship Batch Starting September 6th 2026!
                             </p>
                         </div>
                     </div>
                     <Link href="https://t.me/+8NoyH_QcHtE4OGVl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-transform hover:scale-105 underline">
                         <Send className="h-5 w-5" />
-                        <span>Join Batch 5 Pre-Launch</span>
+                        <span>Join DARK TRADER <sup>TM</sup> Official Telegram Channel</span>
                     </Link>
                 </div>
 
