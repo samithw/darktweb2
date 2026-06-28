@@ -39,7 +39,7 @@ export default function HeroSection() {
                                 <Radio className="relative inline-flex h-3 w-3 text-primary-foreground" />
                             </div>
                             <p className="font-semibold tracking-wide text-white">
-                                New Live Mentorship Batch Starting September 6th 2026!
+                                New Live Mentorship Batch Starting September 5th 2026!
                             </p>
                         </div>
                     </div>
