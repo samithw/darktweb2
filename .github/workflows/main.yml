@@ -8,26 +8,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out code
+      # Step 1: Check out the repository using native Node 24 actions
       - uses: actions/checkout@v6
 
-      # Step 2: Use Node.js 18 for compilation
+      # Step 2: Setup Node 18 for your Next.js application environment
       - uses: actions/setup-node@v6
         with:
           node-version: 18
           cache: 'npm'
 
-      # 🚀 THE FIX: Standard install bypasses strict lockfile validation errors
+      # Step 3: Install dependencies
+      # (Kept as 'npm install' to gracefully handle the lockfile tree from your migration)
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build static site forcing production flag
+      # Step 4: Build static site
       - name: Build Static Site
         run: npm run build
         env:
           NODE_ENV: production
 
-      # Step 5: Package the static distribution files
+      # Step 5: Bundle the static export (/out) for native deployment
       - name: Upload production-ready static artifacts
         uses: actions/upload-pages-artifact@v3
         with:
@@ -43,6 +44,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Step 6: Native modern deployment to GitHub Pages (No third-party tokens needed)
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
