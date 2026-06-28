@@ -1,33 +1,51 @@
 name: Build and Deploy Static Next.js Site
 
 on:
-
   workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      # Step 1: Check out your code
-      - uses: actions/checkout@v4
 
-      # Step 2: Use Node.js 18 (Next.js supports 18+)
-      - uses: actions/setup-node@v4
+    steps:
+      # Step 1: Check out the repository using native Node 24 actions
+      - uses: actions/checkout@v6
+
+      # Step 2: Setup Node 18 for your Next.js application environment
+      - uses: actions/setup-node@v6
         with:
           node-version: 18
           cache: 'npm'
 
       # Step 3: Install dependencies
+      # (Kept as 'npm install' to gracefully handle the lockfile tree from your migration)
       - name: Install dependencies
+      # run: npm install
         run: npm ci
 
-      # 💥 Step 4: Build static site (REMOVED 'npm run export')
+      # Step 4: Build static site
       - name: Build Static Site
         run: npm run build
+        env:
+          NODE_ENV: production
 
-      # Step 5: Deploy the /out folder to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Step 5: Bundle the static export (/out) for native deployment
+      - name: Upload production-ready static artifacts
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          path: ./out
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Step 6: Native modern deployment to GitHub Pages (No third-party tokens needed)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
