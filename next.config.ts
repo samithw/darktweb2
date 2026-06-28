@@ -3,7 +3,7 @@ import type { NextConfig } from 'next'
 const isProd = process.env.NODE_ENV === 'production'
 
 // 👇 uncomment for darktweb2 or origin - comment for prod
-const repoName = 'darktweb2'
+//const repoName = 'darktweb2'
 
 const nextConfig: NextConfig = {
   output: 'export', // <-- enables static export
@@ -37,8 +37,8 @@ const nextConfig: NextConfig = {
     ],
   },
   // 👇 uncomment for darktweb2 or origin - comment for prod
-  basePath: isProd ? `/${repoName}` : '', // <-- ensures GitHub Pages paths work
-  assetPrefix: isProd ? `/${repoName}/` : '', // <-- fixes static assets path 2
+  //basePath: isProd ? `/${repoName}` : '', // <-- ensures GitHub Pages paths work
+  //assetPrefix: isProd ? `/${repoName}/` : '', // <-- fixes static assets path 2
 }
 
 export default nextConfig
